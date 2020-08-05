@@ -28,3 +28,25 @@ for test_case in range(1,T+1):
 
     if st >= N:
         print(f'#{test_case} {m}')
+
+# n = int(input())
+#
+# li = []
+#
+# for i in range(n):
+#     K, N, M = map(int, input().split())
+#     li = list(map(int, input().split()))
+#     where = 0
+#     cnt = 0
+#     for k in range(1,len(li)):
+#         if li[k]-li[k-1] > K:
+#             where = N
+#     while(where < N):
+#         where += K
+#         if where >= N:
+#             break
+#         while(where not in li):
+#             where -= 1
+#         cnt += 1
+#
+#     print(f'#{i+1} {cnt}')
