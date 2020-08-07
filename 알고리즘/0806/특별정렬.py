@@ -11,12 +11,12 @@ def selectionsort(a):
         a[i],a[min] = a[min],a[i]
     x=[]
     y=[]
+    print(a)
     for j in range(len(a)-1,len(a)-6,-1):
         x.append(a[j])
 
     for j in range(0,5):
         y.append(a[j])
-
     for max_v in range(0,len(total),2):
         total[max_v]=x[0]
         x.remove(total[max_v])

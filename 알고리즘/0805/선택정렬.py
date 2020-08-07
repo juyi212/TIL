@@ -3,8 +3,7 @@ def selectionsort(a):
         min = i
         for j in range(i+1,len(a)):
             if a[min]>a[j]:
-                min = j
-        a[i], a[min] = a[min],a[j] #swap
+        a[i], a[min] = a[min],a[i] #swap
 
 #k번째로 작은 것
 # def selectionsort(a,k):

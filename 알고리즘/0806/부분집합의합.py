@@ -1,5 +1,5 @@
-# import sys
-# sys.stdin=open("sample_input_sum.txt","r")
+import sys
+sys.stdin=open("sample_input_sum.txt","r")
 
 T=int(input())
 for test_case in range(1,T+1):
@@ -13,10 +13,7 @@ for test_case in range(1,T+1):
                 li.append(numbers[j])
         x.append(li)
         count=0
-    # for row in x:
-    #    print(row)
-    # print("=========================================")
-    # #
+
     for j in x:
         if len(j) == n:
             sum_v = 0
@@ -24,11 +21,6 @@ for test_case in range(1,T+1):
                 sum_v += l
             if sum_v == k:
                 count += 1
-
-
-    # for j in x:
-    #     if len(j) ==n and sum(j) ==k:
-    #         count+=1
     print(f'#{test_case} {count}')
 
 # if len(li) == n:
