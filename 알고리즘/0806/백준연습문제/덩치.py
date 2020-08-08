@@ -1,33 +1,43 @@
 N=int(input())
-z=[]
+p=[]
 for i in range(N):
-    x=list(map(int,input().split()))
-    z.append(x)
-grade=[0]*N
+    arr=list(map(int,input().split()))
+    p.append(arr)
 
-for r in range(0,N-1):
-    if z[r][0] <= z[r+1][0] and z[r][1] <= z[r+1][1]:
-        max_v=z[r+1]
-        max_k = r+1
+rank=[1]*N
+
+for i in range(N):
+    for j in range(N-i):
+        if i == N-1:
+            break
+        if p[i][0]>p[i+j][0]:
+            if p[i][1]>p[i+j][1]:
+                rank[i+j]+=1
+        if p[i][1]<p[i+j][1]:
+            if p[i][1]<p[i+j][1]:
+                rank[i]+=1
+
+rankin=''
+for i in range(len(rank)):
+    rankin+=f'{rank[i]}'
+
+print(rankin)
+
+#for r in range(0,N):
+#     for rr in range(r+1,N):
+#         if w[r]<w[rr]:
+#             w[r],w[rr]=w[rr],w[r]
+
+# for r in range(0, N):
+#     for rr in range(r + 1, N):
+#         if h[r] < h[rr]:
+#             h[r], h[rr][1] = h[rr][1], h[r][1]
+        # elif (z[max][0] < z[rr][0] and z[max][1] > z[rr][1]) or (z[max][0] > z[rr][0] and z[max][1] < z[rr][1]):
+        #     c[r]+=1
+        # else:
+        #     c[rr] = len(z)
 
 
-
-    #     li[max_k]=count
-    # elif (z[r][0]<z[r+1][0] and z[r][1]>z[r+1][1]) or (z[r][0]> z[r+1][0] and z[r][1]>z[r+1][1]):
-    #     li[r] = count+1
-    # else:
-    #     li[r] = count
-
-
-
-
-for r in range(0,N-1):
-    max=r
-    for rr in range(r+1,N):
-        if z[max][0]<z[rr][0] and z[max][1]<z[rr][1]:
-            max=rr
-    z[r], z[max] = z[max], z[r]
-print(z)
 
 
 

@@ -6,6 +6,8 @@ def countingsort(a,b):
     for i in range(len(b)):
         c[a[i]]+=1 #인덱스가 번호 벨류는 count 수
 
+    print(c)
+
     max_v=c[0]
     max_idx=0
     for i in range(len(c)):

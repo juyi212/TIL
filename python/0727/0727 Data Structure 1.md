@@ -13,7 +13,7 @@
 
 - 조희/탐색 - .find()
 
-  ```
+  ```python
   'apple'.find('p') 
   >> 1
   
@@ -23,10 +23,10 @@
 
 - .index() 
 
-  ```
+  ```python
   'apple'.index('k')
   >> error
-  없으면, 오류가 발생합니다. # find 와 찾는것이 없을때 return 값이 다름.
+  없으면, 오류가 발생합니다. # find 와 찾는것이 없을 때 return 값이 다름.
   ```
 
 - 값 변경- .replace(old,new[,count])
@@ -34,21 +34,24 @@
   ```
   'yay!'.replace('a', '_')
   >>'y_y!'
+  
+  'wooooowoo'.replace('o', '', 2) #count 설정 가능
+  >>'wooowoo'
   ```
 
 - .strip([chars]) 
 
-  - 알고리즘 문제때 유용하게 쓰인다. 확인하자
+  - **알고리즘 문제때 유용하게 쓰인다. 확인하자**
 
   - 특정한 문자들을 지정하면, 양쪽을 제거하거나 왼쪽을 제거하거나(lstrip), 오른쪽을 제거합니다(rstrip).
 
-    지정하지 않으면 공백을 제거합니다.
+    **지정하지 않으면 공백을 제거합니다.**
 
-  ```
-  '    oh!\n'.strip()
+  ```python
+  '    oh!\n  '.strip()
   >> 'oh!'
-  '    oh!\n   '.lstrip()
-  'hehehihihihihi'.rstrip('hi')
+  '    oh!\n   '.lstrip() #왼
+  'hehehihihihihi'.rstrip('hi') #오
   ```
 
 - .split()
@@ -66,7 +69,7 @@
   
   ```
 
-- 'separator',.join(iterable)
+- 'separator',.join(iterable) string, list .. 가능 
 
   - 반복가능한(iterable) 컨테이너의 요소들을 separator를 구분자로 합쳐(`join()`) 문자열로 반환합니다.
 
@@ -82,7 +85,15 @@
   ```
 
 - 문자변형 
-  - 풀어보기
+  
+  - .capitalize() : 앞글자를 대문자로 만들어 반환한다.
+  - .title() : 어포스트로피나 공백 이후를 대문자로 만들어 반환한다.
+  - .upper() : 모두 대문자로 만들어 반환한다.
+  
+  ----------
+  
+  - .lower() : 모두 소문자로 만들어 반환한다.
+  - .swapcase() : 대<-> 소문자로 변경하여 반환한다.
 
 
 
@@ -107,17 +118,28 @@
 
   - 리스트에 iterable(list, range, tuple, string**[주의]**) 값을 붙일 수가 있습니다.
 
-  ```
+  ```python
   cafe.extend(['wcafe', '빽다방'])
   print(cafe)
   >>['starbucks', 'tomntoms', 'hollys', 'banapresso', 'banapresso', 'wcafe', '빽다방']
   ```
+
+  ```python
+  cafe.extend('ediya') #굳이 for 안써도 되겟다 
+  print(cafe)
+  
+  >>['e', 'd', 'i', 'y', 'a']
+  ```
+
+  
 
   list와 list를 extend 해야함 !
 
   append 는 리스트로 안하고 넣음 x.append('s')
 
 - insert(i,x)
+
+  - 정해진 위치 i에 값을 추가할 수 있음. 
 
   - ```
     cafe.insert(len(cafe)+100, '!')
@@ -126,15 +148,47 @@
 
   **원본변경이면 return 값이 없다!!!**
 
-- pop
+- .pop(i)
+
+  - 정해진 위치 i 에 있는 값을 삭제하며, 그 항목을 반환한다.
+  - i가 지정되지 않으면 마지막 항목을 삭제하고 되돌려줌.
+
+  ```python
+  a = [1, 2, 3, 4, 5, 6]
+  print(a.pop(0))
+  print(a)
+  ```
+
+  
 
 - clear 
 
   꼭 하기(원본변경인지 아닌지 return 값 나오는지 안나오는지)
+  
+- 탐색 및 정렬
 
+  - . index(x) : x값을 찾아 해당 index 값을 반환 
 
+  - .count(x)
+
+  - .sort(x)
+
+  - .reverse(x) : 반대로 뒤집는다. **정렬아님**
+
+    
 
 - 리스트 복사
+
+  -mutable
+
+  ```python 
+  id(copy_list) == id(original_list)
+  copy_list is original_list
+  
+  True
+  ```
+
+  
 
 - 데이터의 분류 
 

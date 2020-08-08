@@ -15,7 +15,7 @@ set3={1.'a',(1,3)} -> list 들어가면 error 남
 ```
 
 - add -하나의 값만 추가
-- updat - (*others) 여러가지 값 추가 가능 ,iterable 데이터 구조만 가능
+- update - (*others) 여러가지 값 추가 가능 ,iterable 데이터 구조만 가능
 
 - remove -세트에서 삭제하고, 없으면 KeyError가 발생합니다.
 - discard-세트에서 삭제하고 없어도 에러가 발생하지 않습니다.
@@ -56,11 +56,11 @@ for dic,value in my_dict.items():
   0
   ```
 
-- .pop(key[,default])
+- **.pop(key[,default])**
 
   - key가 딕셔너리에 있으면 제거하고 그 값을 돌려줍니다. 그렇지 않으면 default를 반환합니다.
   - default가 없는 상태에서 딕셔너리에 없으면 KeyError가 발생합니다.
-  - get과는 다르게 기본 default 값이 설정이 x
+  - get과는 다르게 기본 default 값이 설정이 x,설정해주면 가능 
 
   ```
   my_dict = {'apple': '사과', 'banana': '바나나'}
