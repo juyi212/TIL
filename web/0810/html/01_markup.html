@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>my first markup</title>
+</head>
+<body>
+    <header>
+        <a href="https://ssafy.com"> <img src="ssafy.png" alt="싸피 이미지" width="400px">
+        </a>
+        <h1>ssafy 4기 학생 건강설문</h1>
+    </header>
+    <section>
+        <form action="#" method="GET">
+            <div>
+                <label for="name">이름을 기재해주세요.</label><br>
+                <input type="text" id="name" autofocus>
+            </div>
+            <div>
+                <label for="region">지역을 선택해주세요.</label><br>
+                <select name="region" id="region">
+                    <option value="">선택</option>
+                    <option value="서울" disabled>서울</option>
+                    <option value="대전">대전</option>
+                    <option value="광주">광주</option>
+                    <option value="구미">구미</option>
+                </select>
+            <div>
+                <p>오늘의 채온을 선택해주세요.</p>
+                <input type="radio" name="body-heat" id="normal" value="normal">
+                <label for="normal">37도 미만</label>
+                <input type="radio" name="body-heat" id="warning" value="warning">
+                <label for="normal">37도 이상</label>
+            </div>
+            <input type="submit" value="제출하기">
+        </form>
+    </section>
+    <footer>
+        google 설문지를 통해 ~~
+    </footer>
+</body>
+</html>

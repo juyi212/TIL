@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p{
+      color: orange; /*inline 스타일이 우선순위가 더 높다*/
+    }
+  
+    h2{
+      color: darkmagenta !important;
+    }
+
+    .blue{
+      color: blue;
+    }
+    .green{
+      color: green;
+    }
+    #red{
+      color: red;
+    }
+    /*body 안에 class 를 선언한게 중요한게 아니라 캐스캐이딩으로 내려오는 순서대로 정의된 것이 중요*/
+  </style>
+</head>
+<body>
+  <p>1</p>
+  <p class="blue">2</p>
+  <p class="blue green">3</p> 
+  <p class="green blue">4</p>
+  <p id="red" class="blue">5</p>
+  <h2 id="red" class="blue">6</h2> 
+  <p id="red" class="blue" style="color: yellow;">7</p>
+  <h2 id="red" class="blue" style="color: yellow;">8</h2>
+</body>
+</html>
