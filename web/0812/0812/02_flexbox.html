@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="02_flexbox.css">
+  <title>CSS Flexbox</title>
+  <style>
+    .flex-container{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      /* flex-wrap: wrap;  - 넘어가는 것들 밑으로 내려 보냄*/
+      /* flex-direction: column-reverse;  메인축 column 읽는 부분 반대로  */
+      /*flex-direction 과 flex-warp 숄텐드*/
+      /* flex-flow:column wrap; */
+
+      /*메인축 정렬*/
+      justify-content: flex-start;
+      /* 오른쪽 끝으로 내용 정렬
+      justify-content: flex-end;
+      justify-content: center;
+      justify-content: space-between;
+      /*균등 좌우 정렬 */
+      /* justify-content: space-around;
+      /*균등 정렬*/
+      /* justify-content: space-evenly;  */
+
+      /*크로스축 정렬*/
+      /* align-items:flex-start; */
+
+      /*align-self 는 각각이기에 container이 아니라 따로 class 명령해서 하나의 요소에만 줘야함*/
+    }
+      /* 남은 여백을 1,2,3으로 나눈 것임,절대로 비율이 아님.   */
+      .item1{
+        order: 0;
+      }
+
+    
+  </style>
+</head>
+<body>
+  <div class="base">
+    <h2>Flex</h2>
+    <hr>
+    <div class="box flex-container">
+      <div class="item1">1</div>
+      <div class="item2">2</div>
+      <div class="item3">3</div>
+      <div class="item4">4</div>
+      <div class="item5">5</div>
+      <div class="item6">6</div>
+      <div class="item7">7</div>
+      <div class="item8">8</div>
+      <div class="item9">9</div>
+      <div class="item10">10</div>
+      <div class="item11">11</div>
+      <div class="item12">12</div>
+      <div class="item13">13</div>
+    </div>
+  </div>
+</body>
+
+</html>
