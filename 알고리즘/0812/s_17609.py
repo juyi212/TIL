@@ -1,18 +1,17 @@
+#
+# def re(words):
+#     r_word = ''
+#     for word in words[::-1]:
+#         r_word+=word
+#     return r_word
+
 n=int(input())
-
-def re(words):
-    r_word = ''
-    for word in words[::-1]:
-        r_word+=word
-    return r_word
-
-for test_case in range(n):
+for _ in range(n):
     words=input()
-    re_word=re(words)
-    if words == re_word:
+    if words == words[::-1]:
         print('0')
     else:
-        for i in list(re_word):
+        for i in list(re_word[0:(len(re_word)//2)+1]):
             new = list(re_word)
             new2=''
             new.remove(i)
@@ -24,7 +23,6 @@ for test_case in range(n):
                 break
         else:
             print('2')
-
 
 
 
