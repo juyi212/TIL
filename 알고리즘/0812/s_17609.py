@@ -1,28 +1,28 @@
-#
-# def re(words):
-#     r_word = ''
-#     for word in words[::-1]:
-#         r_word+=word
-#     return r_word
-
+def irr(arr,i):
+    arr.pop(i)
+    str(arr)
+    if arr == arr[::-1]:
+        return True
 n=int(input())
 for _ in range(n):
     words=input()
     if words == words[::-1]:
         print('0')
     else:
-        for i in list(re_word[0:(len(re_word)//2)+1]):
-            new = list(re_word)
-            new2=''
-            new.remove(i)
-            for j in new:
-                new2+=j
-            new3=re(new2)
-            if new2 == new3:
-                print('1')
-                break
+        b =len(list(words))
+        for i in range(b//2):
+            a = list(words)
+            f=i
+            l=b-i-1
+            if a[f] != a[l]:
+                v=irr(a,f)
+                s = irr(list(words),l)
+                if v ==1 or s ==1 :
+                    print('1')
+                    break
         else:
             print('2')
+            break
 
 
 
