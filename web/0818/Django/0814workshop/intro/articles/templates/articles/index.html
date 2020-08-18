@@ -1,0 +1,9 @@
+<!-- 상속 -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'articles:catch' %}">
+    <input type="text" name="name">
+    <input type="submit" value="send">
+</form>
+{% endblock %}
