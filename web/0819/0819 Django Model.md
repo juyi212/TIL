@@ -164,6 +164,12 @@ article.save() #3. 반드시 저장해줘야함.
 - `QuerySet` return
 - 리스트는 아니지만 리스트와 거의 비슷하게 동작 (조작할 수 있음)
 
+```
+>>> Article.objects.all()
+<QuerySet [<Article: Article object (1)>, <Article: Article object (2)>, <Article: Article object (3)>, <Article: Article object (4)>]>
+get()
+```
+
 `get()`
 
 - 객체가 없으면 `DoesNotExist`에러가 발생
@@ -181,6 +187,15 @@ article.save() #3. 반드시 저장해줘야함.
 `filter()`
 
 - 지정된 조회 매개 변수와 일치하는 객체를 포함하는 QuerySet을 return 
+- 복수의 값도 리턴해줌
+
+```
+>>> Article.objects.filter(content='django!')
+<QuerySet [<Article: first>, <Article: fourth>]>
+
+>>> Article.objects.filter(title='first')
+<QuerySet [<Article: first>]>
+```
 
 
 
@@ -190,9 +205,24 @@ article.save() #3. 반드시 저장해줘야함.
 2. 인스턴스 변수 값을 바꾸고
 3.  save까지 해줘야함 갱신! (updated_at 도 바뀌게 됨.)
 
+```python
+# UPDATE articles SET title='byebye' WHERE id=1;
+>>> article = Article.objects.get(pk=1)
+>>> article.title
+'first'
 
+# 값을 변경하고 저장
+>>> article.title = 'byebye'
+>>> article.save()
+
+# 정상적으로 변경된 것을 확인
+>>> article.title
+'byebye'
+```
 
 #### DELETE
+
+- article 인스턴스 생성후 `.delete()` 메서드 호출
 
 
 

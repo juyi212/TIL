@@ -11,19 +11,24 @@ def lotto(request):
         li.append(response.get(f'drwtNo{i}'))
     
     bonus=response.get('bnusNo')
-    count=0
     one,two,three,four,five=0,0,0,0,0
     # 1. numbers에 있는 값을 하나씩 뽑아서 winner에 있는지
     # 2. set을 이용해서 교집합
     for i in range(1,1001):
-        numbers=list(random.sample(range(1,46),6))
-        for j in numbers:
-            if j in li:
-                count+=1
-        if count==6:
+        count=0
+        numbers=random.sample(range(1,46),6)
+        if li[:]==numbers[:]:
             one+=1
-        elif count==5 and bonus in numbers:
-            two+=1
+
+# matched=len(set(numbers)& set(winner))
+        else:
+            for j in numbers:
+                if j in li:
+                    count+=1   
+        if count==5:
+            three+=1
+            if bonus in numbers:
+                two+=1
         elif count==5:
             three+=1
         elif count==4:
