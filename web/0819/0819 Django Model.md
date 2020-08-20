@@ -296,9 +296,30 @@ Article.objects.filter(title='second').first()
 # Template 확장 사용하기
 
 1. base.html 을 생성하고 원하는 위치에 templates폴더 안에 위치 시킨다.
+   - base.html 에는 기본 html DOM트리를 구성
+   - bootstrap CDN을 복붙해준다. (JS,..)
+   - block을 body 안에 적절한 곳에 위치시킨다.
 2. setting.py 에 base.html의 경로를 등록한다.
    - TEMPLATES 라는 곳에 있는 DIRS에 그 경로를 추가한다.
    - base.html 이 있는 경로를 BASE_DIR로 부터 설정해 주면 됨.
    - `'DIRS': [BASE_DIR/'workshop_sol'/'templates'],`
 3. 확장하고 사용한다.
    - 가장 첫번째 줄에 {% extends `base.html`%}
+   - 그 다음 block 을 위치 시키고 block 안에 적절히 꾸며주면 됨.
+
+
+
+---------------
+
+**0819_ws check list**
+
+- 링크 태그
+
+  ```python
+  <a class="nav-link" href="{% url 'pages:community'%}">community</a>
+  
+  # url 분리 후 url namespace로 만들어줌.
+  ```
+
+  
+
