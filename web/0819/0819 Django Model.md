@@ -226,3 +226,79 @@ get()
 
 
 
+--------------------------
+
+# Field lookups
+
+- 구글링 키워드 : django queryset
+
+- 필드명_필드룩업
+
+- exact : 대소문자 전부 일치해야 함.
+
+- iexact :  대소문자는 상관없이 일치하면 됨.
+
+- contains : 해당 글자가 어느 위치 던지 포함되어 있으면 됨.
+
+- startwith : 해당 글자로 시작하는 것만 
+
+- endwith :  해당 글자로 끝나는 것만 
+
+- gt / gte / lt / lte (비교 연산자)
+
+  ```
+  https://docs.djangoproject.com/en/3.1/ref/models/querysets/#id4
+  ```
+
+  
+
+### 실습
+
+- 제목이 first이고 한개만 가져와라. (여러개의 데이터가 있는데 하나만 가져오고 싶을 때)
+
+```python
+Article.objects.filter(title='second').first()
+```
+
+해당 모델 클래스로 값이 리턴
+
+
+
+- 정렬을 하고 싶을 때 (오름, 내림)
+
+  ```
+  # 오름차순 
+  Article.objects.order_by('title')
+  
+  # 내림차순
+  Article.objects.order_by('-title')
+  ```
+
+- Queryset으로 리턴을 받았을 때
+
+  - Queryset 은  list와 유사함
+  - indexing & slicing 
+
+  ```python
+  Article.objects.all()[2]
+  <Article: third>
+      
+  # -1 은 지원하지 않음.
+  
+  Article.objects.all()[:2]
+  <QuerySet [<Article: first_number>, <Article: second>]>
+  ```
+
+  
+
+------------------------
+
+# Template 확장 사용하기
+
+1. base.html 을 생성하고 원하는 위치에 templates폴더 안에 위치 시킨다.
+2. setting.py 에 base.html의 경로를 등록한다.
+   - TEMPLATES 라는 곳에 있는 DIRS에 그 경로를 추가한다.
+   - base.html 이 있는 경로를 BASE_DIR로 부터 설정해 주면 됨.
+   - `'DIRS': [BASE_DIR/'workshop_sol'/'templates'],`
+3. 확장하고 사용한다.
+   - 가장 첫번째 줄에 {% extends `base.html`%}
