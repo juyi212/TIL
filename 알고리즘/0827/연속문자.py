@@ -2,21 +2,17 @@
 t=int(input())
 for tc in range(1,t+1):
     string=list(input())
-    check=[0,]
+    check=[]
 
-    while len(check)>0:
-        check.pop()
-        for i in range(len(string)):
-            if len(check)==0:
+    for i in range(len(string)):
+        if len(check)==0:
+            check.append(string[i])
+
+        elif len(check)>0:
+            if check[-1] == string[i]:
+                check.pop()
+            else:
                 check.append(string[i])
-
-            elif len(check)>0:
-                if check[-1] == string[i]:
-                    check.pop()
-                else:
-                    check.append(string[i])
-        if len(check)!=0:
-            break
     print(f'#{tc} {len(check)}')
 
 
@@ -25,4 +21,18 @@ for tc in range(1,t+1):
 ABCCB
 '''
 
-
+# for ch in arr:
+#     if not S:
+#         S.append(ch)
+#     elif ch!=S[-1]:
+#         S.append(ch)
+#     else:
+#         S.pop()
+#     print(len(S))
+#
+# for ch in arr:
+#     if not S or ch!=S[-1]:
+#         S.append(ch)
+#     else:
+#         S.pop()
+#     print(len(S))

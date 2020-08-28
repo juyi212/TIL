@@ -25,4 +25,26 @@ for _ in range(1,11):
             num=0
             sadari(99,j)
     min_v=min(min_d)
-    print(f'#{t} {min_d.index(min_v)}')
+    print(f'#{t} {min_d.index(min`_v)}')
+
+
+
+#사다리 1
+# def check(x,y):
+    #if 0<=x<100 and 0<=y<100 and arr[x][y]==1:
+    # arr[x][y] == 0
+    # return True
+# x=y=0
+# for i in range(100):
+#     if arr[99][i]==2:
+#         x,y = 99,i
+#         break
+# while x: x가 0이되면 나옴
+#     arr[x][y]=0
+#     if check(x,y-1):
+#           y-=1
+#     elif check(x,y+1):
+#           y+=1
+#     else:
+#           x-=1
+
