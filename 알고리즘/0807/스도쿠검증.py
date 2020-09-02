@@ -47,15 +47,3 @@ for test_case in range(1,T+1):
     for i in range(9):
         n.append(list(map(int,input().split())))
     print(search(n))
-
-    # print(ri)
-    # li = [0]*9
-    # for c in range(len(i)):
-    #     for i in n:
-    #         if i[c] in number:
-    #             li[c]+=1
-    # print(li)
-    # box=[0]*9
-    #
-    # print(box)
-    # print("-------------------")

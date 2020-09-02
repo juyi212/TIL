@@ -30,7 +30,7 @@ for tc in range(1,t+1):
                         break
                 elif nx<=0 or nx>n or ny<=0 or ny>n:
                     break
-                elif board[ny][nx] == 0:
+                elif board[ny][nx] == 0: #11102 이런경우 방지
                     break
                 else: # 한방향으로 쭉쭉
                     ny+=dy[k]

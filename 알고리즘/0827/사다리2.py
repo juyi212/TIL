@@ -25,7 +25,7 @@ for _ in range(1,11):
             num=0
             sadari(99,j)
     min_v=min(min_d)
-    print(f'#{t} {min_d.index(min`_v)}')
+    print(f'#{t} {min_d.index(min_v)}')
 
 
 
