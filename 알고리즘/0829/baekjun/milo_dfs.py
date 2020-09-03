@@ -10,7 +10,7 @@ def dfs(i,j):
                 return
             stack.append((nx,ny)) #들어갈 길 저장
             dfs(nx,ny)
-            stack.pop() # 다시 되돌아갈길 찾기
+            stack.pop() # 다시 되돌아갈길 찾기 / pop 위치에 따라 답이 달라지는 경우도 있다.
 
 for _ in range(1,11):
     tc=int(input())

@@ -7,8 +7,8 @@ def dfs(idx,sum_m):
 
 
     for w in range(n):
-        if visited[w]==0: #세로줄 다시 방문 하지 못하게
-            visited[w]=1
+        if visited[w]==0:
+            visited[w]=1 #세로줄 다시 방문 하지 못하게
             if min_c>sum_m+cards[idx][w]: # 최소값보다 더해지는 값들이 커지면 할 필요가 없음
                 dfs(idx+1,sum_m+cards[idx][w])
             visited[w]=0
