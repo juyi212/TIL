@@ -8,7 +8,7 @@ def dfs(node,s):
             s+=cities_c[node][start_node]
             if s<min_c:
                 min_c=s
-
+    
     for w in range(n):
         if node!=w and not w in stack and cities_c[node][w] != 0:
             stack.append(w)
