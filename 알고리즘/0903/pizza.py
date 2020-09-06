@@ -2,13 +2,12 @@ def bake():
     q=[]
     for i in range(m):
         q.append((cheeses[i],i))
-        if len(q)==n:
-            while len(q)==n:
-                first,idx = q.pop(0)
-                if first // 2 != 0:
-                    q.append((first // 2,idx))
-                else:
-                    break
+        while len(q)==n:
+            first,idx = q.pop(0)
+            if first // 2 != 0:
+                q.append((first // 2,idx))
+            else:
+                break
     while True:
         if len(q)<n:
             first, idx = q.pop(0)

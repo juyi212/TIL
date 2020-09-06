@@ -9,6 +9,7 @@ def find():
         for i in q:
             if contact.get(i) == None:
                 continue
+
             for j in contact[i]:
                 if j in visited:
                     continue

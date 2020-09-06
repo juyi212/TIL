@@ -4,8 +4,8 @@ sys.setrecursionlimit(100000)
 def dfs(node,s):
     global min_c
     if len(stack)==n: # 마지막 노드에서 처음으로 돌아가는 노드를 더해주기위해
-        if cities_c[node][start_node] !=0:
-            s+=cities_c[node][start_node]
+        if cities_c[node][0] !=0:
+            s+=cities_c[node][0]
             if s<min_c:
                 min_c=s
     
@@ -19,12 +19,11 @@ def dfs(node,s):
 n=int(input())
 cities_c=[list(map(int,input().split())) for _ in range(n)]
 
-for i in range(n):
-    min_c=100000000000
-    s=0
-    stack=[i]
-    start_node=i
-    dfs(i,0)
+ # circle이라서 노드 하나만 봐도 됨. 고치자
+min_c=100000000000
+s=0
+stack=[0]
+dfs(0,0)
 print(min_c)
 
 
