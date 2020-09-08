@@ -13,7 +13,8 @@ def printSet(n,sum):
         print()
 def powerset(n,k,cursum): # n 원소의 갯수, k 현재 depth
     global total
-    if cursum >10: return
+    if cursum >10:
+        return
     total+=1
 
     if n==k:
