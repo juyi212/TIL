@@ -1,4 +1,4 @@
-def check(v):
+def check(v): #dfs
     global visit
     visit[v]=1
     for w in range(1,N+1):
