@@ -58,7 +58,7 @@ def postfix_notation(cal_li):
     # stack에 남은 연산자 모두 출력
     for j in stack:
         result.append(stack.pop())
-
+    print(result)
     return check(result)
 
 

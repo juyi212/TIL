@@ -12,8 +12,6 @@ def f1(n,g,K,m): #n 고려할 직원 번호, g 직원 수, K 선반 높이, m은
         f1(n+1,g,K,m+H[n]) #n-1까지의 높이 m + H[n] n번 직원의 높이 더해줌
 
 
-
-
 def f(n,g,K): # n 고려할 직원 번호, g 직원 수
     global minV
     if n==g: # 모든 직원에 대해 고려
