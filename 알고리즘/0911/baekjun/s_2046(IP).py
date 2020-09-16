@@ -5,30 +5,57 @@ for _ in range(t):
     result+=[ip]
 makeip=[0]*4
 diffbite=[]
+
+# 임의 ip & 서브넷 = 네트워크 주소????
+
+
 for i in range(4):
-    if result[0][i]==result[1][i]==result[2][i]:
-        makeip[i]=result[0][i]
-    else:
-        need_idx=i
-        b=format(int(result[0][i]),'b')
-        diffbite+=[b]
-        b=format(int(result[1][i]),'b')
-        diffbite+=[b]
-        b=format(int(result[2][i]),'b')
-        diffbite+=[b]
+    same=result[0][i]
+    for ii in range(1,t):
+        if same==result[ii][i] and not same in makeip:
+            makeip[i]=result[ii][i]
+
+        elif same!=result[ii][i]:
+            f = format(int(result[0][i]), 'b')
+            if not f in diffbite:
+                diffbite += [f]
+                b = format(int(result[ii][i]), 'b')
+                if len(b)<8:
+                    bb=b.zfill(8)
+                    diffbite += [bb]
+            else:
+                need_idx=i
+                b = format(int(result[ii][i]), 'b')
+                if len(b) < 8:
+                    bb = b.zfill(8)
+                    diffbite += [bb]
+
+
+
+
+print(makeip)
+print(diffbite)
 
 makenum=['0']*8
-for i in range(8):
-    if diffbite[0][i]==diffbite[1][i]==diffbite[2][i]:
-        makenum[i]=diffbite[0][i]
-    else:
-        m=8-i
-        break
+# for i in range(8):
+#     for j in range(len(diffbite)):
+#     if diffbite[0][i]==diffbite[1][i]==diffbite[2][i]:
+#         makenum[i]=diffbite[0][i]
+#     else:
+#         m=8-i
+#         break
+
+print(makenum)
 # m 네트워크 마스크를 만들어줘야함.
 ip_num=int(''.join(makenum),2) # 최소 바이트값
 makeip[need_idx]=ip_num
 print(f'{makeip[0]}.{makeip[1]}.{makeip[2]}.{makeip[3]}')
 nt_mask=[]
+#
+# if len(makeip)==4:
+#     print('255.255.255.255')
+# elif len(makeip)==3:
+
 
 
 
