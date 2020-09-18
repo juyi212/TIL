@@ -1,11 +1,10 @@
-t=int(input())
-result=[]
-for _ in range(t):
-    ip=list(map(int,input().split('.')))
-    result+=[ip]
+import sys
 
+t=int(sys.stdin.readline())
+
+ip=[list(map(int,sys.stdin.readline().split('.'))) for _ in range(t)]
 b_li=[]
-for i in result:
+for i in ip:
     diff=''
     for j in i:
         f=format(j,'b')
@@ -50,16 +49,10 @@ for i in range(0,len(subnet),8):
     ans_sub+=[ff]
     ans_ip+=[pp]
 
-for i in range(len(ans_ip)):
-    if i==len(ans_ip)-1:
-        print(ans_ip[i])
-    else:
-        print(ans_ip[i],end='.')
-for i in range(len(ans_sub)):
-    if i==len(ans_sub)-1:
-        print(ans_sub[i])
-    else:
-        print(ans_sub[i],end='.')
+print('.'.join(map(str,ans_ip)))
+print('.'.join(map(str,ans_sub)))
+
+
 
 
     # 각각의 바이트를 검색해주고 같다면 패스, 다르면 들어가서 탐색
