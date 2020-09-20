@@ -1,22 +1,3 @@
-# import heapq
-#
-# t=int(input())
-# for tc in range(1,t+1):
-#     N=int(input())
-#     heapp=list(map(int,input().split()))
-#     heapq.heapify(heapp)
-#     heapp.insert(0,0)
-#     a=N
-#     f=0
-#     print(heapp)
-#     print(f'#{tc}',end=' ')
-#     while True:
-#         a=a//2
-#         if a==1:
-#             f+= heapp[a]
-#             break
-#         f+=heapp[a]
-#     print(f)
 
 import heapq
 
