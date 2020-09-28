@@ -1,15 +1,15 @@
 t=int(input())
 
-def dfs(S,L):
-    stack=[]
-    stack.append(S)
-    while stack:
-        S=stack.pop()
+def bfs(S,L):
+    q=[]
+    q.append(S)
+    while q:
+        S=q.pop()
         if dic.get(S):
             for i in dic[S]:
                 if i == L:
                     return 1
-                stack.append(i)
+                q.append(i)
     return 0
 
 
@@ -25,7 +25,7 @@ for tc in range(1,t+1):
             dic[s].append(e)
 
     S,L=map(int,input().split())
-    print(f'#{tc} {dfs(S,L)}')
+    print(f'#{tc} {bfs(S,L)}')
 
 
 '''
