@@ -1,5 +1,36 @@
-r,c=map(int,input().split()) #세, 가
-p,q=map(int,input().split()) #개미 위치
-t=int(input())
+t=int(input()) #스위치 개수
+swit=list(map(int,input().split())) #스위치 상태
+swit.insert(0,0)
+num=int(input())
 
-tx,ty=t%(r*2),t%(c*2) #풀필요한 반복되는 시간을 줄여주기, 순환되는 시간이 있음
+for i in range(num):
+    person,n=map(int,input().split())
+    if person ==1: # 남학생
+        for k in range(n,t+1,n):
+            if swit[k]==1:
+                swit[k]=0
+            else:
+                swit[k]=1
+
+    else: #여학생
+        if swit[n] == 1:
+            swit[n] = 0
+        else:
+            swit[n] = 1
+        for m in range(1,n):
+            if n-m>0 and n+m<=t and swit[n-m]==swit[n+m]:
+                if swit[n-m]:
+                    swit[n - m]=0
+                    swit[n + m]=0
+                else:
+                    swit[n - m]=1
+                    swit[n + m]=1
+            else:
+                break
+
+
+for i in range(1,t+1):
+    print(swit[i],end=' ')
+    if i%20==0:
+        print()
+
