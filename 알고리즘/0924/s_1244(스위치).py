@@ -17,16 +17,15 @@ for i in range(num):
             swit[n] = 0
         else:
             swit[n] = 1
-        for m in range(1,n):
-            if n-m>0 and n+m<=t and swit[n-m]==swit[n+m]:
-                if swit[n-m]:
-                    swit[n - m]=0
-                    swit[n + m]=0
-                else:
-                    swit[n - m]=1
-                    swit[n + m]=1
-            else:
-                break
+        m=1
+        while(n-m>0 and n+m<=t and swit[n-m]==swit[n+m]):
+            if swit[n+m]==1:
+                swit[n - m]=0
+                swit[n + m]=0
+            elif swit[n+m]==0:
+                swit[n - m]=1
+                swit[n + m]=1
+            m+=1
 
 
 for i in range(1,t+1):

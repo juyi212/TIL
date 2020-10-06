@@ -56,8 +56,10 @@
   > translating (QuerySet, model, instance --> JSON) 번역을 해주는 과정 
 
   - 데이터 구조나 오브젝트 상태를 동일하거나 다른 컴퓨터 환경에 저장하고 나중에 재구성 할 수 있는 포맷으로 변화하는 과정
-  - Django에서 Form 을 작성하는 것과 굉장히 유사
+  - Django에서 Form 을 작성하는 것과 굉장히 유사(유효성 검사, DB 저장 등등..)
 
+  
+  
   
 
 
