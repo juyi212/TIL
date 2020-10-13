@@ -17,7 +17,7 @@ def check(x, y, dep):   # 깊이를 이용해서 .... 백트래킹을 넣어주�
                     check(x + 1, y, dep+1)
                 else:   # x가 9보다 클 때
                     if y < 9:
-                        check((x+1) % 10, y + 1, dep+1)
+                        check(0, y + 1, dep+1)
                     else:   # 마지막 종료조건
                         check(x, y, dep+1)
                 change(x, y, k, 1)
@@ -28,10 +28,10 @@ def check(x, y, dep):   # 깊이를 이용해서 .... 백트래킹을 넣어주�
             check(x+1, y, dep)
         else:
             if y < 9:
-                check((x+1) % 10, y+1, dep)
+                check(0, y+1, dep)
             else:   # 마지막 종료조건인데, 색종이가 잘 붙어있는지 확인해줘야함
                 for n in range(len(matrix)):
-                    for m in range(len(matrix)):
+                    for m in range(len(matrix)):    # 카운트써도 되겟다 matrix[n].count(1)>0: return
                         if matrix[n][m] == 1:
                             return
                 else:

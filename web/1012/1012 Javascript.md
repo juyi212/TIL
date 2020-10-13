@@ -50,6 +50,9 @@
   - `querySelector(selector)`를 이용해서 id, class 태그를 선택해서 조작 가능 (id,class,복.선, tag 포함)
   - `getElementById(id)`는 수업시간에서는 사용하지 않을 예정.
     - live 속성때문
+  - dir (선택된 엘리먼트를 가진 변수)
+    - 사용할 수 있는 속성 정보를 볼 수 있다.
+    - mdn 문서 (mdn  + 찾으려는 속성 정보)
 
 - HTMLCollection (live)
 
@@ -110,8 +113,10 @@
 
   - **addEventListener**
 
-    - ~하면 ~한다
-
-    - EventTarget. addEventListener( type, listener(function) )
-
+    - 특정 이벤트가 벌어지면 특정 행동을 한다.
+- ~하면 ~한다
+    - `EventTarget. addEventListener( 이벤트type, listener(function) )`
+- `preventDefault()` 
+      - 기본 동작을 동작하지 않게 막을 수 있다.
+    
     
