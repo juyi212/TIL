@@ -7,7 +7,7 @@ visited=[[0]*101 for _ in range(101)]
 def bfs(r,c):
     ans=0
     q=collections.deque()
-    visited[r][c]=1
+    visited[r][c] = 1
     q.append([r,c])
     while q:
         r,c = q.popleft()
