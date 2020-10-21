@@ -141,12 +141,14 @@ c--
 - 비교 연산자
   
   - 문자열 비교는 영어 소문자가 대문자보다 큰 값을 가짐. 알파벳은 오름차순으로 순서 비교
+  
 - 동등 연산자(' == ')
   
   - 비교 대상이 서로 다른 타입일 경우, 비교하기 전에 가능하다면 같은 자료형으로 형변환하여 비교 해야함
+  
 - 일치 연산자 (' === ')
   
-- 타입과 값이 모두 같은지 비교한다. 동등연산자와 다르게 엄격한 비교를 하기 때문에 일치 연산자를 사용하는 것을 권장한다
+  - 타입과 값이 모두 같은지 비교한다. 동등연산자와 다르게 엄격한 비교를 하기 때문에 일치 연산자를 사용하는 것을 권장한다
   
 - 논리 연산자 
 
@@ -166,6 +168,20 @@ c--
 #### 조건문
 
 - if, else if, else
+
+  ```javascript
+  const name = 'manager'
+  
+  if (name === 'admin'){
+      console.log('관리자님, 환영합니다.')
+  }else if (name === 'manager'){
+      console.log('매니저님, 환영합니다.')
+  } else{
+  	console.log(`${name}님 환영합니다.`)
+  }
+  ```
+
+  
 
 - switch
 
@@ -200,14 +216,14 @@ c--
 
 ```javascript
 for (let i = 0; i<6; i++){
-    console.log(i) //0 1 2 3 4 5 6
+    console.log(i) //0 1 2 3 4 5 
 }
 ```
 
 - for of
 
-  - 배열에서 요소를 하나씩 순회하며 반복하는 반복문이다.
-  - 매 요소는 블럭 내에서 새롭게 선언되기 때문에 반드시 변수 선언 키워드를 작성
+  - **배열에서 요소를 하나씩 순회하며 반복하는 반복문이다.**
+  - 매 요소는 **블럭 내에서 새롭게 선언되기 때문에 반드시 변수 선언 키워드**를 **작성**
 
   ```javascript
   const numbers=[0,1,2,3,4]
@@ -230,7 +246,9 @@ for (let i = 0; i<6; i++){
   }
   
   
-  // for (value of Object.values(fruits)) list로 반환하기때문에 for of 로 idx순회 
+  // for (value of Object.values(fruits)) list로 반환하기때문에 for of 로 idx순회
+  // Object.values(fruits) list로 반환된다. ['apple','banana']
+  
   ```
 
 
