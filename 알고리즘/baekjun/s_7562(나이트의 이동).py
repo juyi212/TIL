@@ -15,7 +15,7 @@ def bfs(s1,s2,e1,e2):
                 visited[nx][ny]=True
 
 
-
+#   저장해 나가면서 푸는 방법도 있음.
 t=int(input())
 for tc in range(t):
     l=int(input()) #한 변의 길이
