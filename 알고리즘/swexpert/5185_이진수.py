@@ -1,5 +1,7 @@
+
 def check(num):
     a = int(num, 16)    # 10진수로 바꿔줌
+    print(a)
     y = [0] * 4
     for i in range(4):
         y[i] = str(a % 2)
@@ -12,9 +14,12 @@ def check(num):
 for tc in range(1, int(input())+1):
     n, number = input().split()
     result = ''
+    cnt = 0
+    value = 0
     for i in range(int(n)):
         result += check(number[i])
     print('#{0} {1}'.format(tc, result))
+
 
 '''
 3
