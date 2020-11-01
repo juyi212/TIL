@@ -11,7 +11,7 @@ def DFS(people, pc):
     else:
         for k in range(N):
             if not hey[k]:
-                hey[k] = True
+                hey[k] = True   # people이 몇번째 일을 하는지 체크
                 if max_p < pc * matrix[people][k]/100:
                     DFS(people+1, pc * matrix[people][k]/100)
                 hey[k] = False

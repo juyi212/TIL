@@ -18,14 +18,14 @@ def check():
         result.append(times[idx])
 
 
-for tc in range(1, int(input())+1):
+for tc in range(1, int(input())+1):     # 탐욕 문제들은 대부분 정렬을 하고 한다
     N = int(input())   # 개수
     times = []
     for i in range(N):
         s, e = map(int, input().split())
         times.append([s, e])
 
-    for i in range(N):  # 정렬
+    for i in range(N):  # 뒷 시간을 기준으로 정렬
         for j in range(i, N):
             if times[i][1] > times[j][1]:
                 times[i], times[j] = times[j], times[i]

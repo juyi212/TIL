@@ -1,37 +1,34 @@
-def getParent(parents, x):
-    if parents[x] == x:     # 자기자신
+# 분리집합 문제
+
+def find(x):
+    if parents[x] == x:
         return x
-    p = getParent(parents, parents[x])
+
+    p = find(parents[x])
     parents[x] = p
     return p
 
 
-def unionParent(parents, x1, x2, cnt):
-    a = getParent(parents, x1)
-    b = getParent(parents, x2)
+def union(parents, person1, person2, cnt):
+    a = find(person1)
+    b = find(person2)
 
     if a != b:
         parents[b] = a
         cnt[a] += cnt[b]
 
 
-def findParent(x, parents):
-    if parents[x] == x:
-        return x
-    return findParent(parents[x], parents)
-
-
-for _ in range(1, int(input())+1):
-    F = int(input())
+for tc in range(1, int(input())+1):
+    n = int(input())
     parents = {}
     cnt = {}
-    for i in range(F):
-        f1, f2 = input().split()
-        if f1 not in parents:
-            parents[f1] = f1
-            cnt[f1] = 1
-        if f2 not in parents:
-            parents[f2] = f2
-            cnt[f2] = 1
-        unionParent(parents, f1, f2, cnt)
-        print(cnt[findParent(f1, parents)])
+    for i in range(n):
+        p1, p2 = input().split()
+        if p1 not in parents:
+            parents[p1] = p1
+            cnt[p1] = 1
+        if p2 not in parents:
+            parents[p2] = p2
+            cnt[p2] = 1
+        union(parents, p1, p2, cnt)
+        print(cnt[find(p1)])

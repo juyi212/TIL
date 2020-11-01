@@ -1,6 +1,4 @@
 import sys
-import collections
-
 sys.stdin = open('input10.txt', 'r')
 
 
@@ -8,18 +6,20 @@ def check(cnt):
     global ans
 
     total = int(''.join(number))
-    visited.append([cnt, total])
+    if total in visited[cnt]:   # 그 횟수(cnt)에서 total이 있다면 더 이상 나올 필요 x
+        return
+    else:
+        visited[cnt].add(total) # 없으면 넣어주자
 
-    if cnt == 0:
+    if cnt == int(k):   # 다 돌렸을때의 최대를 정해줘야함
         if total > ans:
             ans = total
         return
 
-    for i in range(len(number)):
+    for i in range(len(number)-1):
         for j in range(i+1, len(number)):
             number[i], number[j] = number[j], number[i]
-            if [cnt-1, int(''.join(number))] not in visited:    # 들어가있는 건 걸러주자
-                check(cnt-1)    # cnt -1
+            check(cnt+1)
             number[i], number[j] = number[j], number[i]
 
 
@@ -27,6 +27,6 @@ for tc in range(1, int(input())+1):
     number, k = input().split()
     number = list(number)
     ans = -123456
-    visited = []
-    check(int(k))
+    visited = [set() for _ in range(int(k)+1)]
+    check(0)
     print('#{} {}'.format(tc, ans))
