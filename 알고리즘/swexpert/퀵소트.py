@@ -19,10 +19,10 @@ def hoare_partition(arr, left, right):
     #   i가 j보다 작거나 같을 때 까지 계속 반복(left와 right가 연적되면 수행 x)
     while i <= j:
         #   i는 증가하면서, pivot보다 큰 값을 찾음
-        while arr[i] <= pivot:
+        while i <= j and arr[i] <= pivot:
             i += 1
         #   j는 감소하면서, pivot보다 작은 값을 찾음.
-        while arr[j] > pivot:   # pivot은 지나가지마라!
+        while i <= j and arr[j] >= pivot:   # pivot은 지나가지마라!
             j -= 1
 
         if i < j:
@@ -49,5 +49,6 @@ def lomuto_partition(arr, left, right):
 
 # arr = [4, 3, 2, 1, 7, 5, 5, 2]
 arr = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+# arr = [2,2,1,1,3]
 quick_sort(arr, 0, len(arr)-1)
 print(arr)

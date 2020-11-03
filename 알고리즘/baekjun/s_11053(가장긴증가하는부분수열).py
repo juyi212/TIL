@@ -7,7 +7,6 @@ def check(link, a):
             e = m - 1
         else:
             s = m + 1
-
     return s
 
 

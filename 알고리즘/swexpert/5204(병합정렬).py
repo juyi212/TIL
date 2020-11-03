@@ -51,50 +51,96 @@
 #     print(a)
 #     print(f'#{tc} {a[N//2]} {cnt}')
 
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
 
-def sum_sort(array):
+    m = len(arr)//2
 
-    if len(array) <= 1:
-        return array
 
-    c = len(array)//2
-    l_array = sum_sort(array[:c])
-    r_array = sum_sort(array[c:])
+    left = merge_sort(arr[:m])
+    right = merge_sort(arr[m:])
 
-    if l_array[-1] > r_array[-1]:
-        cnt[0] += 1
+    return merge(left, right)
 
-    new_array = []
-    i = 0
-    j = 0
-    l_len = len(l_array)
-    r_len = len(r_array)
-    while len(new_array) < l_len + r_len:
 
-        if i == l_len:
-            new_array.append(r_array[j])
+def merge(left, right):  # left, right 를 병합
+    result = list()
+
+    i = j = 0
+    while i < len(left) or j < len(right):
+        if i < len(left) and j < len(right):
+            if left[i] > right[j]:
+                result.append(right[j])
+                j += 1
+            else:
+                result.append(left[i])
+                i += 1
+        elif j < len(right):    # 왼쪽 배열은 다 복사되고, 오른쪽이 남아있을경우
+            result.append(right[j])
             j += 1
-        elif j == r_len:
-            new_array.append(l_array[i])
+        elif i < len(left):
+            result.append(left[i])
             i += 1
-        elif l_array[i] < r_array[j]:
-            new_array.append(l_array[i])
-            i += 1
-        else:   # l_array[i] >= r_array[j]
-            new_array.append(r_array[j])
-            j += 1
 
-    return new_array
+    return result
+
+
+
+    return result
+
 
 
 T = int(input())
 for t in range(1, T+1):
     N = int(input())
-    numbers = list(map(int,input().split()))
+    arr = list(map(int,input().split()))
     cnt = [0]
-    result = sum_sort(numbers)
-    print(result)
-    print('#{} {} {}'.format(t, result[N//2], cnt[0]))
+    print(merge_sort(arr))
+
+
+
+
+
+# def sum_sort(array):
+#
+#     if len(array) <= 1:
+#         return array
+#
+#     c = len(array)//2
+#     l_array = sum_sort(array[:c])
+#     r_array = sum_sort(array[c:])
+#
+#     if l_array[-1] > r_array[-1]:
+#         cnt[0] += 1
+#
+#     new_array = []
+#     i = 0
+#     j = 0
+#     l_len = len(l_array)
+#     r_len = len(r_array)
+#     while len(new_array) < l_len + r_len:
+#
+#         if i == l_len:
+#             new_array.append(r_array[j])
+#             j += 1
+#         elif j == r_len:
+#             new_array.append(l_array[i])
+#             i += 1
+#         elif l_array[i] < r_array[j]:
+#             new_array.append(l_array[i])
+#             i += 1
+#         else:   # l_array[i] >= r_array[j]
+#             new_array.append(r_array[j])
+#             j += 1
+#
+#     return new_array
+
+
+
+    # result = sum_sort(numbers)
+    # print(result)
+    # print('#{} {} {}'.format(t, result[N//2], cnt[0]))
 
 
 '''
