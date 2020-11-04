@@ -51,12 +51,13 @@
 #     print(a)
 #     print(f'#{tc} {a[N//2]} {cnt}')
 
+
+# O(nlogn) 병합정렬
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
 
     m = len(arr)//2
-
 
     left = merge_sort(arr[:m])
     right = merge_sort(arr[m:])
