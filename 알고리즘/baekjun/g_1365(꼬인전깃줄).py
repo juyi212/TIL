@@ -62,3 +62,6 @@ for a in arr:
     else:
         link[check(link, a)] = a    # a값이 있는 사이에 가장 큰 값중   작은 값의 인덱스를 찾아서 넣어준다.
 print(len(arr) - len(link))
+
+
+

@@ -5,7 +5,7 @@ def check(dp, a):
         m = (s+e)//2
         if dp[m] < a:
             e = m
-        else:
+        else:   # dp[m] > a?
             s = m+1
     return e    # 젤 큰값과 변경
 
@@ -18,7 +18,7 @@ dp = []
 for i in matrix:
     if not dp or dp[-1] > i:
         dp.append(i)
-    else:   # dp[-1] < i
+    else:   # dp[-1] < i 큰 값을 교체해줄 자리를 찾는다
         dp[check(dp, i)] = i
 
 print(dp)
