@@ -22,7 +22,7 @@ def hoare_partition(arr, left, right):
         while i <= j and arr[i] <= pivot:
             i += 1
         #   j는 감소하면서, pivot보다 작은 값을 찾음.
-        while i <= j and arr[j] >= pivot:   # pivot은 지나가지마라!
+        while i <= j and arr[j] >= pivot:
             j -= 1
 
         if i < j:
