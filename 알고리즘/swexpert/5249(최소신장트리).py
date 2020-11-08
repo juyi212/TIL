@@ -35,7 +35,6 @@ for tc in range(1, int(input()) + 1):
 
     print('#{} {}'.format(tc, prim(adj, 0)))
 
-# kruskal 로 풀어보기
 
 
 '''
@@ -61,3 +60,47 @@ for tc in range(1, int(input()) + 1):
 3 4 10
 
 '''
+
+# kruskal 로 풀어보기 겨수님 풀이
+#
+# def make_set(x):
+#     p[x] = x
+#
+#
+# def find_set(x):
+#     if p[x] != x:
+#         p[x] = find_set(p[x])
+#     return p[x]
+#
+#
+# def union(x, y):
+#     p[find_set(y)] = find_set(x)
+#
+#
+# for tc in range(1, int(input()) + 1):
+#     V, E = map(int, input().split())
+#
+#     edges = [list(map(int, input().split())) for _ in range(E)]
+#
+#     p = [0] * (V + 1)
+#
+#     # 가중치 정렬
+#
+#     edges = sorted(edges, key=lambda x: x[2])
+#     for i in range(V + 1):
+#         make_set(i)
+#
+#     ans = 0
+#     cnt = 0  # 간선을 v개 선택을 해야하니깐
+#     idx = 0
+#
+#     while cnt < V:
+#         x = edges[idx][0]
+#         y = edges[idx][1]
+#
+#         if find_set(x) != find_set(y):  # 같은 그룹이아닐때만 union
+#             union(x, y)
+#             cnt += 1  # 간선을 선택 한것임
+#             ans += edges[idx][2]
+#         idx += 1
+#     print(ans)
