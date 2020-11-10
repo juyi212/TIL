@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "app">
+    <h2> Cat Image </h2>
+
+    <div v-for = 'myimg in myImg'>
+      <img :src="myimg" alt="my-image" style="height: 200px; width: 300px;">
+    </div>
+    
+    <br>
+    <button @click = "addPic"> Get Cat </button>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({ // instance 
+      el : '#app',
+      data: {
+        myImg : ['이주이바보똥개'], 
+      },
+      methods:{
+        addPic: function() {
+          axios.get('https://api.thecatapi.com/v1/images/search/')
+          .then((res) => {  // this 를쓰기위해
+            // console.log(res.data[0].url)
+            this.myImg.push(res.data[0].url)
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

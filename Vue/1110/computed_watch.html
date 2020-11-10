@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "app">
+    <p> Methods : {{ timeByMethod() }}</p>
+    <p> Computed : {{ timeByComputed }}</p>
+    <p> a : {{ a }} </p>
+    <p> b : {{ b }} </p>
+    <p> c : {{ c }} </p>
+    <button @click = "a++"> a 증가 </button>
+    <button @click = "b++"> b 증가 </button>
+    <button @click = "c++"> c 증가 </button>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        a : 0,
+        b : 0,
+        c : 0,
+      },
+      methods: {
+        timeByMethod: function () {
+          console.log('method')
+          return `${Date.now()}`
+        }
+      },
+      computed : {
+        timeByComputed: function () {
+          console.log('computed @@@@')
+          return `${Date.now()} ${this.b}`  
+          //의존성이 없으면 저장된 값을 (캐싱된 값이) 계속 사용된다.
+          // ${b} b값이 바뀌면서 캐싱이된다.
+        }
+      },
+      watch: {
+        c: function() {
+          console.log('watch###') // 지켜보는 데이터가 변경이되면 함수가 실행된다.
+        }
+      }
+    })
+  </script>
+</body>
+</html>

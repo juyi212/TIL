@@ -35,7 +35,7 @@ def kruskal(queue):
             continue
         union(v[0], v[1])
         mst.append((v, weight))
-
+    print(mst)
     return mst
 
 
@@ -53,6 +53,7 @@ for tc in range(1, int(input())+1):
 
     result = kruskal(queue)
     total = 0
+
     for i in result:
         total += i[1]
     print(total)

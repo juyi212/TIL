@@ -63,6 +63,31 @@ for tc in range(1, int(input())+1):
     # 3진수에서 다를 경우 하나씩
     # 모든 경우를 비교해야함.
 
+# T = int(input())
+# for t in range(1, T + 1):
+#     binary = list(map(int, input()))
+#     ternary = list(map(int, input()))
+#     binarys = []
+#     ternarys = []
+#     for i in range(len(binary)):
+#         tmp = binary[:]
+#         tmp[i] = binary[i] ^ 1
+#         binarys.append(int(''.join(map(str, tmp)), base=2))
+#
+#     check = []
+#     for i in range(len(ternary)):
+#         tmp = ternary[:]
+#         for j in range(3):
+#             if tmp[i] == str(j):
+#                 continue
+#             ternarys.append(int(''.join(map(str, tmp[:i] + [j] + tmp[i + 1:])), base=3))
+#     # print(ternarys)
+#
+#     for i in binarys:
+#         for j in ternarys:
+#             if i == j:
+#                 print(i)
+
 '''      
 1
 1010

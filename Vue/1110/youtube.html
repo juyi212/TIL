@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const UT_API = 'AIzaSyCjXzwM63vkeQHEeZm7GtbBF4E_DZBZG8Q'
+    const API_URL = 'https://www.googleapis.com/youtube/v3/search'
+    const headers = {
+      params: {
+        key : UT_API, 
+        part: 'snippet',
+        type: 'video',
+        q: '펭수',
+      }
+    }
+    function getRes (){
+      axios.get(API_URL, headers)
+      .then(res => {
+        console.log(res)
+      })
+    }
+  </script>
+</body>
+</html>
