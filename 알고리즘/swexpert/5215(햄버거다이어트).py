@@ -24,8 +24,6 @@ for tc in range(1, int(input())+1):
     print(f'#{tc} {max_taste}')
 
 
-
-
 '''
 1
 5 1000
