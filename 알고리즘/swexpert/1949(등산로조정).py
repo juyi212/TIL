@@ -19,6 +19,7 @@ def check(r, c, k, cnt):
 
             elif matrix[nr][nc] - k < matrix[r][c]:
                 origin = matrix[nr][nc]
+                # 하나씩 뺴준다 최대 깊이가 k 이기 때문에
                 matrix[nr][nc] = matrix[r][c] - 1
                 visited[nr][nc] = True
 
