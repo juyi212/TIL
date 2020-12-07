@@ -14,7 +14,7 @@ same = 0
 # 무게가 같으면 가격을 다 더해준다.
 
 total, answer = 0, float('inf')
-stop = False
+stop = False  
 
 for i in range(N):
     total += meats[i][0]
