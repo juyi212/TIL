@@ -1,73 +1,60 @@
-from collections import deque
 
-def check(r, c):
-    global cnt
+def check(r, c, cnt, const):
+    global total
 
-    nxt_check = []
-    for k in range(8):
-        nr, nc = r + dr[k], c + dc[k]
-        if 0 <= nr < N and 0 <= nc < N:
-            if matrix[nr][nc] == '.':
-                nxt_check.append((nr, nc))
-            else:   # 지뢰일 때
-                break
-    else:
-        if nxt_check: # 주변에 지뢰가 없을 때 퍼져 나간다
-            matrix[r][c] = 0
-            cnt += 1
-            spread(nxt_check)
+    if total <= cnt:
+        total = cnt
 
-def spread(nxt_check):
-    q = deque(nxt_check)
-    nxt_nxt = []
-    while q:
-        x, y= q.popleft()
-        matrix[x][y] = 0 # 이미 전에 클릭이 된 것들이라 0으로 다 바꿔줘야함
-        for k in range(8):
-            nr, nc = x + dr[k], y + dc[k]
-            if 0 <= nr < N and 0 <= nc < N:
-                if matrix[nr][nc] == '.':
-                    nxt_nxt.append((nr, nc))
-                else: # 지뢰일때는 멈춤
-                    break
+    for dr, dc in ([1, 0],[-1, 0],[0, 1],[0, -1]):
+        nr, nc = r + dr, c+dc
+        if 0 <= nr < N and 0 <= nc < N and not visited[nr][nc]:
+            if matrix[r][c] > matrix[nr][nc]:   # 그냥 적을 때
+                visited[nr][nc] = True
+                check(nr, nc, cnt+1, const)
+                visited[nr][nc] = False
 
-        else:
-            if nxt_nxt:
-                spread(nxt_nxt)
+            elif matrix[r][c] <= matrix[nr][nc] and not const: # 공사할 공간 설렉
+                for i in range(1, K+1): # 빼보면서 작은 구간이 있으면 공사한다.
+                    matrix[nr][nc] -= i
+                    const = True
+                    if matrix[r][c] > matrix[nr][nc]:
+                        visited[nr][nc] = True
+                        check(nr, nc, cnt+1, const)
+                        visited[nr][nc] = False
+                    const = False
+                    matrix[nr][nc] += i
 
 
 
 for tc in range(1, int(input())+1):
-    N = int(input())
-    matrix = [list(input()) for _ in range(N)]
-    dr, dc = [-1, -1, -1, 0, 1, 1, 1, 0], [-1, 0, 1, 1, 1, 0, -1, -1]
-    cnt = 0
+    N, K = map(int, input().split())
+    matrix = [list(map(int, input().split())) for _ in range(N)]
+    max_num = max(map(max, matrix))
+    max_li = []
     for i in range(N):
         for j in range(N):
-            if matrix[i][j] == '.':
-                check(i, j)
-    else:
-        for i in range(N):
-            for j in range(N):
-                if matrix[i][j] == '.':
-                    cnt += 1
+            if matrix[i][j] == max_num:
+                max_li.append((i, j))
+    total = -1
 
-    for i in matrix:
-        print(*i)
-    print(cnt)
-
+    for r, c in max_li:
+        visited = [[False]*N for _ in range(N)]
+        visited[r][c] = True
+        check(r, c, 1, False)
+    print(f'#{tc} {total}')
 
 '''
-2
-3
-..*
-..*
-**.
-5
-..*..
-..*..
-.*..*
-.*...
-.*...
+
+10        
+5 1       
+9 3 2 3 2 
+6 3 1 7 5
+3 4 8 9 9
+2 3 7 7 7
+7 6 5 5 8
+3 2       
+1 2 1     
+2 1 2
+1 2 1
 
 '''
