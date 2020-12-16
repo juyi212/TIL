@@ -1,60 +1,66 @@
+direction = {
+    1: (-1, 0), 2: (1, 0),
+    3: (0, -1), 4: (0, 1)
+}
 
-def check(r, c, cnt, const):
-    global total
+def move(m):
+    if m[3] == 1:   # 상
+        m[0] -= 1
+        if m[0] == 0:
+            m[2] = m[2]//2
+            m[3] = 2
+    elif m[3] == 2: #하
+        m[0] += 1
+        if m[0] == N-1:
+            m[2] = m[2]//2
+            m[3] = 1
+    elif m[3] == 3:  # 좌
+        m[1] -= 1
+        if m[1] == 0:
+            m[3] = 4
+            m[2] = m[2] // 2
+    elif m[3] == 4:  # 우
+        m[1] += 1
+        if m[1] == N-1:
+            m[3] = 3
+            m[2] = m[2] // 2
 
-    if total <= cnt:
-        total = cnt
-
-    for dr, dc in ([1, 0],[-1, 0],[0, 1],[0, -1]):
-        nr, nc = r + dr, c+dc
-        if 0 <= nr < N and 0 <= nc < N and not visited[nr][nc]:
-            if matrix[r][c] > matrix[nr][nc]:   # 그냥 적을 때
-                visited[nr][nc] = True
-                check(nr, nc, cnt+1, const)
-                visited[nr][nc] = False
-
-            elif matrix[r][c] <= matrix[nr][nc] and not const: # 공사할 공간 설렉
-                for i in range(1, K+1): # 빼보면서 작은 구간이 있으면 공사한다.
-                    matrix[nr][nc] -= i
-                    const = True
-                    if matrix[r][c] > matrix[nr][nc]:
-                        visited[nr][nc] = True
-                        check(nr, nc, cnt+1, const)
-                        visited[nr][nc] = False
-                    const = False
-                    matrix[nr][nc] += i
-
-
+    return m
 
 for tc in range(1, int(input())+1):
-    N, K = map(int, input().split())
-    matrix = [list(map(int, input().split())) for _ in range(N)]
-    max_num = max(map(max, matrix))
-    max_li = []
-    for i in range(N):
-        for j in range(N):
-            if matrix[i][j] == max_num:
-                max_li.append((i, j))
-    total = -1
+    N, M, K = map(int, input().split()) # 셀의 개수, 격리시간, 미생물 군집 수
+    matrix = dict()
+    for _ in range(K):
+        r, c, bug, dir = map(int, input().split())
+        matrix[(r, c)] = [(bug, dir)]
+    # dict 으로 풀어도 가능/ dict 으로 풀면 del 과정을 없애도 됨
+    for p in range(M):
+        check = {}
+        for key, value in matrix.items():
+            cr, cc = key
+            bug, di = value[0][0], value[0][1]
+            m = move([cr,cc,bug,di])
+            # 충돌되는 것 확인해야함
+            if (m[0], m[1]) in check:
+                check[(m[0], m[1])].append((m[2], m[3]))
+            else:
+                check[(m[0], m[1])] = [(m[2], m[3])]
 
-    for r, c in max_li:
-        visited = [[False]*N for _ in range(N)]
-        visited[r][c] = True
-        check(r, c, 1, False)
-    print(f'#{tc} {total}')
+        for i in check:
+            if len(check[i]) > 1:
+                total = 0
+                next_dir = (0, 0)
+                find_max = 0
+                for bugs, currentdir in check[i]:
+                    total += bugs
+                    if bugs > find_max:
+                        find_max = bugs
+                        next_dir = currentdir
+                check[i] =[(total, next_dir)]
+        matrix = check
 
-'''
+    result = 0
+    for vv in matrix:
+        result += matrix[vv][0][0]
+    print(f'#{tc} {result}')
 
-10        
-5 1       
-9 3 2 3 2 
-6 3 1 7 5
-3 4 8 9 9
-2 3 7 7 7
-7 6 5 5 8
-3 2       
-1 2 1     
-2 1 2
-1 2 1
-
-'''
