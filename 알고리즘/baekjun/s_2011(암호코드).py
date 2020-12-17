@@ -20,7 +20,6 @@ else:
         if tcur >= 10 and tcur <= 26:
             dp[i] += dp[i-2]
         dp[i] %= 1000000
-
     print(dp[l])
 
 
