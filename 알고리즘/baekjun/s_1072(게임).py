@@ -1,7 +1,7 @@
 import sys
 import math
 
-
+# 이분탐색
 def check():
     start = 0
     end = w
@@ -30,6 +30,10 @@ if z >= 99: # 절대 변하지 않을 수
     print(-1)
 else:
     check()
+
+
+# 수학식으로 풀 기  ~~~~ ceil(((z+1)*x - 100 * y) / (100-(z+1))) ceil 은 소수점 버리는 함수  마지막에
+
 
 
 '''
